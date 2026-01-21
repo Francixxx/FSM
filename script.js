@@ -185,7 +185,13 @@ function initCamera() {
 
     cameraStatus.classList.remove('hidden');
 
-    navigator.mediaDevices.getUserMedia({ video: true })
+    // Check if API is available (requires HTTPS or localhost)
+    if (!navigator.mediaDevices || !navigator.mediaDevices.getUserMedia) {
+        cameraStatus.textContent = 'Camera API not available (Check HTTPS).';
+        return;
+    }
+
+    navigator.mediaDevices.getUserMedia({ video: { facingMode: 'user' } })
         .then(stream => {
             cameraStream = stream;
             videoElement.srcObject = stream;
@@ -214,9 +220,11 @@ scanButton.addEventListener('click', () => {
     scanButton.disabled = true;
 
     setTimeout(() => {
-        const signs = ['Hello', 'A', 'Salamat', 'Water', 'I'];
-        const recognizedSignId = signs[Math.floor(Math.random() * signs.length)];
-        const recognizedSign = SIGNS.find(s => s.id === recognizedSignId);
+        // Simulate AI Recognition: Pick a random sign from the database
+        // In a real app, this would use a TensorFlow.js model to predict the sign
+        const randomSign = SIGNS[Math.floor(Math.random() * SIGNS.length)];
+        // 80% chance of success, 20% chance of "not recognized" for realism
+        const recognizedSign = Math.random() > 0.2 ? randomSign : null;
 
         if (recognizedSign) {
             scanResult.innerHTML = `
