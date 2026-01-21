@@ -1,0 +1,181 @@
+body { 
+    font-family: 'Inter', sans-serif; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    padding: 20px;
+}
+
+.tab-button { 
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); 
+    color: #9ca3af; 
+}
+
+.tab-button.active { 
+    color: #3b82f6; 
+    transform: translateY(-3px); 
+}
+
+.tab-button:hover:not(.active) {
+    color: #6b7280;
+    transform: translateY(-1px);
+}
+
+/* Custom Scrollbars */
+#content::-webkit-scrollbar { 
+    width: 6px; 
+}
+
+#content::-webkit-scrollbar-track { 
+    background: #f1f5f9; 
+}
+
+#content::-webkit-scrollbar-thumb { 
+    background: #cbd5e1; 
+    border-radius: 3px; 
+}
+
+#content::-webkit-scrollbar-thumb:hover { 
+    background: #94a3b8; 
+}
+
+/* Card Styles */
+.card { 
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+    transition: all 0.3s ease;
+}
+
+.card:hover {
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.08), 0 4px 6px -2px rgba(0, 0, 0, 0.04);
+}
+
+/* Lesson Items */
+.lesson-item { 
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    cursor: pointer;
+}
+
+.lesson-item:hover { 
+    transform: translateY(-2px); 
+    box-shadow: 0 4px 12px rgba(59, 130, 246, 0.15);
+}
+
+.lesson-item:active {
+    transform: translateY(0);
+}
+
+/* Language Tags */
+.language-tag { 
+    padding: 4px 10px; 
+    border-radius: 6px; 
+    font-size: 0.7rem; 
+    font-weight: 600;
+    letter-spacing: 0.3px;
+}
+
+/* Chat Area Scrollbar */
+.chat-area::-webkit-scrollbar { 
+    width: 6px; 
+}
+
+.chat-area::-webkit-scrollbar-thumb { 
+    background-color: #cbd5e1; 
+    border-radius: 3px; 
+}
+
+.chat-area::-webkit-scrollbar-track { 
+    background-color: #f8fafc; 
+}
+
+/* Camera Feed */
+#cameraFeed {
+    width: 100%;
+    height: 320px;
+    object-fit: cover;
+    border-radius: 12px;
+    border: 3px solid #e2e8f0;
+}
+
+/* Modal Styles */
+.modal {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.hidden-modal {
+    opacity: 0;
+    pointer-events: none;
+    transform: scale(0.95);
+}
+
+/* Gradient Background */
+.gradient-bg {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+}
+
+/* Sign Images */
+.sign-image {
+    filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.1));
+    transition: transform 0.3s ease;
+}
+
+.sign-image:hover {
+    transform: scale(1.05);
+}
+
+/* Progress Bar */
+.progress-bar {
+    height: 8px;
+    background: #e2e8f0;
+    border-radius: 999px;
+    overflow: hidden;
+}
+
+.progress-fill {
+    height: 100%;
+    background: linear-gradient(90deg, #3b82f6, #8b5cf6);
+    transition: width 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Stat Cards */
+.stat-card {
+    background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%);
+    border: 1px solid #e2e8f0;
+}
+
+/* Animations */
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.animate-slide-up {
+    animation: slideUp 0.3s ease-out;
+}
+
+/* View Hidden State */
+.view.hidden {
+    display: none;
+}
+
+.aspect-16-9 {
+  position: relative;
+  width: 100%;
+  padding-top: 56.25%; /* 16:9 Aspect Ratio */
+}
+
+.aspect-16-9 iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 12px; /* To match the card's rounded corners */
+}
